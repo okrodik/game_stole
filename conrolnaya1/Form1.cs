@@ -35,7 +35,7 @@ namespace conrolnaya1
         public void createPole()
         {
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.Size = new Size(1000, 1000);
+            this.Size = new Size(1200, 1000);
 
             pictureBoxes = new PictureBox[10, 10, 2];
 
@@ -77,10 +77,9 @@ namespace conrolnaya1
                     Label label = new Label();
                     label.Text = nomer.ToString();
                     label.Size = new Size(50, 50);
-                    label.TextAlign = ContentAlignment.MiddleCenter;
                     label.Location = new Point(100 + col * 70, 100 + row * 70);
+
                     Controls.Add(label);
-                    label.BringToFront();
 
                     pictureBox.Size = new Size(50, 50);
 
@@ -109,11 +108,13 @@ namespace conrolnaya1
 
             button2.Enabled = false;
 
-            button1.Location = new Point(100, 780);
-            button2.Location = new Point(100, 780);
+            button1.Location = pictureBoxes[9, 0, 0].Location; 
+            button2.Location = pictureBoxes[9, 0, 0].Location;
 
             button1.Size = new Size(40, 40);
             button2.Size = new Size(40, 40);
+
+            viborKtoNashinaet();
         }
 
         private async void button1_Click(object sender, EventArgs e)
@@ -124,7 +125,6 @@ namespace conrolnaya1
             await animation();
 
             int x = randInt();
-            x = 3;
 
             Dvizenie1(x);
         }
@@ -137,7 +137,6 @@ namespace conrolnaya1
             await animation();
 
             int x = randInt();
-            x = 3;
 
             Dvizenie2(x);
         }    
@@ -214,10 +213,7 @@ namespace conrolnaya1
                 if (x1 == 9 && y1 == 9)
                 {
                     MessageBox.Show("Победил игрок 1");
-                    x2 = 0;
-                    x1 = 0;
-                    y1 = 0;
-                    y2 = 0;
+                    ResetGame();
                 }
             }
 
@@ -258,6 +254,27 @@ namespace conrolnaya1
             }
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ResetGame();
+        }
+
+        private void ResetGame()
+        {
+            x2 = 0;
+            x1 = 0;
+            y1 = 0;
+            y2 = 0;
+
+            button1.Location = pictureBoxes[9, 0, 0].Location;
+            button2.Location = pictureBoxes[9, 0, 0].Location;
+
+            PervuiHod1 = 0;
+            PervuiHod2 = 0;
+
+            button1.Enabled = true;
+            button2.Enabled = false;
+        }
 
         private async void Dvizenie2(int step)
         {
@@ -307,10 +324,7 @@ namespace conrolnaya1
                 if (x2 == 9 && y2 == 9)
                 {
                     MessageBox.Show("Победил игрок 2");
-                    x2 = 0;
-                    x1 = 0;
-                    y1 = 0;
-                    y2 = 0;
+                    ResetGame();
                 }
             }
 
