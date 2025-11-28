@@ -16,7 +16,7 @@ namespace conrolnaya1
 {
     public partial class Form1 : Form
     {
-        PictureBox [,,] pictureBoxes;
+        PictureBox [,] pictureBoxes;
         Random rnd = new Random();
 
         int randX = 0;
@@ -37,7 +37,7 @@ namespace conrolnaya1
             this.StartPosition = FormStartPosition.CenterScreen;
             this.Size = new Size(1200, 1000);
 
-            pictureBoxes = new PictureBox[10, 10, 2];
+            pictureBoxes = new PictureBox[10, 10];
 
             //pictureBoxes[4, 1, 1] = "3";
             //pictureBoxes[10, 0, 1] = "6";
@@ -92,7 +92,7 @@ namespace conrolnaya1
 
                     Controls.Add(pictureBox);
 
-                    pictureBoxes[row, col, 0] = pictureBox;
+                    pictureBoxes[row, col] = pictureBox;
                 }
             }
 
@@ -108,8 +108,8 @@ namespace conrolnaya1
 
             button2.Enabled = false;
 
-            button1.Location = pictureBoxes[9, 0, 0].Location; 
-            button2.Location = pictureBoxes[9, 0, 0].Location;
+            button1.Location = pictureBoxes[9, 0].Location; 
+            button2.Location = pictureBoxes[9, 0].Location;
 
             button1.Size = new Size(40, 40);
             button2.Size = new Size(40, 40);
@@ -252,6 +252,8 @@ namespace conrolnaya1
 
                 button1.Location = new Point(newPosX, newPosY);
             }
+
+            AddGameEvent("Player 1", step);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -266,8 +268,8 @@ namespace conrolnaya1
             y1 = 0;
             y2 = 0;
 
-            button1.Location = pictureBoxes[9, 0, 0].Location;
-            button2.Location = pictureBoxes[9, 0, 0].Location;
+            button1.Location = pictureBoxes[9, 0].Location;
+            button2.Location = pictureBoxes[9, 0].Location;
 
             PervuiHod1 = 0;
             PervuiHod2 = 0;
@@ -326,7 +328,11 @@ namespace conrolnaya1
                     MessageBox.Show("Победил игрок 2");
                     ResetGame();
                 }
+
             }
+
+
+            dataGridView1.Rows.Add(step);
 
             if (x2 == x1 && y2 == y1)
             {
@@ -363,8 +369,14 @@ namespace conrolnaya1
 
                 button2.Location = new Point(newPosX, newPosY);
             }
+
+            AddGameEvent("Player 2", step);
         }
 
+        private void AddGameEvent(string kto, int x)
+        {
+            dataGridView1.Rows.Add( kto, x);
+        }
 
 
         private async void viborKtoNashinaet() 

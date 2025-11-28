@@ -33,11 +33,11 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Где = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.Где = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -73,20 +73,10 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Где,
             this.Column1});
-            this.dataGridView1.Location = new System.Drawing.Point(69, 278);
+            this.dataGridView1.Location = new System.Drawing.Point(840, 278);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(222, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(250, 150);
             this.dataGridView1.TabIndex = 3;
-            // 
-            // Где
-            // 
-            this.Где.HeaderText = "Player1";
-            this.Где.Name = "Где";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Player2";
-            this.Column1.Name = "Column1";
             // 
             // pictureBox2
             // 
@@ -117,6 +107,16 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // Где
+            // 
+            this.Где.HeaderText = "Кто";
+            this.Где.Name = "Где";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Сколько шагов";
+            this.Column1.Name = "Column1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -144,10 +144,10 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Где;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Где;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }
 
