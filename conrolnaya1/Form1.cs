@@ -276,6 +276,8 @@ namespace conrolnaya1
 
             button1.Enabled = true;
             button2.Enabled = false;
+
+            dataGridView1.Rows.Clear();
         }
 
         private async void Dvizenie2(int step)
